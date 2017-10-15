@@ -1,0 +1,64 @@
+<!DOCTYPE heml>
+<html>
+		<head>
+				<title>js</title>
+				<meta charset="utf-8"/>
+				<style type="text/css">
+					#result{
+						 height: 40px; 
+						 width: 110px; 
+						 font-size: 30px;
+					}
+				</style>
+				<script type="text/javascript">
+				var str = 0;
+				var tmp3;
+				var cnt = 0;
+				function showDate(nums) {
+					str = document.getElementById("result"); 
+					str.value = str.value + nums; 
+				}
+				function equal() {
+					str = document.getElementById("result"); 
+					tmp3 = eval(str.value); 
+					str.value = tmp3;
+				}
+				function clear_() {
+					str = document.getElementById("result"); 
+					str.value = "";
+				}
+				</script>
+		</head>
+		<body>
+		<table border="1px" cellspacing="2px" cellpadding="6px">
+			<tr>
+				<td colspan="3"><input type="text" id="result"/> </td>
+				<td><form><input type="button" id="clear" value="c" onclick="clear_()"></form></td>
+			</tr>
+			<tr>
+				<td><form><input type="button" id="1" value="1" onclick="showDate(1)"></form></td>
+				<td><form><input type="button" id="2" value="2" onclick="showDate(2)"></form></td>
+				<td><form><input type="button" id="3" value="3" onclick="showDate(3)"></form></td>
+				<td><form><input type="button" id="add" value="+" onclick="showDate('+')"></form></td>
+			</tr>
+			<tr>
+				<td><form><input type="button" id="4" value="4" onclick="showDate(4)"></form></td>
+				<td><form><input type="button" id="5" value="5" onclick="showDate(5)"></form></td>
+				<td><form><input type="button" id="6" value="6" onclick="showDate(6)"></form></td>
+				<td><form><input type="button" id="sub" value="-" onclick="showDate('-')"></form></td>
+			</tr>
+			<tr>
+				<td><form><input type="button" id="7" value="7" onclick="showDate(7)"></form></td>
+				<td><form><input type="button" id="8" value="8" onclick="showDate(8)"></form></td>
+				<td><form><input type="button" id="9" value="9" onclick="showDate(9)"></form></td>
+				<td><form><input type="button" id="mul" value="*" onclick="showDate('*')"></form></td>
+			</tr>
+			<tr>
+				<td><form><input type="button" id="0" value="0" onclick="showDate(0)"></form></td>
+				<td><form><input type="button" id="point" value="." onclick="showDate('.')"></form></td>
+				<td><form><input type="button" id="ret" value="=" onclick="equal()"></form></td>
+				<td><form><input type="button" id="division" value="/" onclick="showDate('/')"></form></td>
+			</tr>
+		</table>
+		</body>
+<ml>
