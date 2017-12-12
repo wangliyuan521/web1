@@ -1,63 +1,53 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  	<title>图片自动滚动</title>
-  	<meta charset="utf-8"  content="textml; charset=gb2312" />
+    <title> 仿QQ空间相册 </title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        #main{
+        width:1000px;
+        margin:auto;
+        }
+        #smallpic{
+        height:120px; 
+        }
+        img{
+        float:left; 
+        margin-right:10px; 
+        margin-bottom:10px;
+        }
+        #smallpic img:hover{
+            cursor:pointer; /*设定鼠标的形状为小手*/
+        }
+        .pb{
+         border:3px solid #14c3fd;
+        } 
+    </style>
+    <script type="text/javascript">
+        var images =document.getElementsByTagName("img");
+        function showbig(a){
+             for(var i=0;i<6;i++)
+             {
+                images[i].style.border="0px";
+             }
+             document.getElementById(a).style.border="2px solid yellow";
+             document.getElementById("bigpic").src=document.getElementById(a).src;
+         }
+    </script>
 </head>
-	<style type="text/css">
-		#picScroll{
-			white-space: nowrap;
-			overflow: hidden;
-			width: 1000px;
-			height: 300px;
-		}
-		img{
-			height: 300px;
-		}
-		#picScroll1{
-			float:left;
-		}
-		#picScroll2{
-			float:left;
-		}
-	</style>
-	<script type="text/javascript">
-		window.onload=function(){
-			var speed=10;
-			var tab=document.getElementById("picScroll");
-			var tab1=document.getElementById("picScroll1");
-			var tab2=document.getElementById("picScroll2");
-			tab2.innerHTML=tab1.innerHTML
-			function changeToLeft(){
-				if(tab2.offsetWidth-tab.scrollLeft<=0){
-					tab.scrollLeft-=tab1.offsetWidth
-				}
-				else{
-					tab.scrollLeft++;
-				}
-			}
-			var MyMar=setInterval(changeToLeft,speed);
-			tab.onmouseover=function(){
-				clearInterval(MyMar)
-			};
-			tab.onmouseout=function(){
-				MyMar=setInterval(changeToLeft,seep)
-			};
-			}
-	</script>
+
 <body>
-	<div id="picScroll">
-		<span id="picScroll1">
-			<img src="images/1.jpg" />
-			<img src="images/2.jpg" />
-			<img src="images/3.jpg" />
-			<img src="images/4.jpg" />
-			<img src="images/5.jpg" />
-			<img src="images/6.jpg" />
-			<img src="images/7.jpg" />
-			<img src="images/8.jpg" />
-		</span>
-		<span id="picScroll2"></span>
- 	</div> 
+    <div id="main">
+        <div id="smallpic">
+            <img src="images/s2.jpg" width="180" height="100" id="1" onclick="showbig('1');" />
+            <img src="images/s3.jpg" width="180" height="100" id="2" onclick="showbig('2');"/>
+            <img src="images/s4.jpg" width="180" height="100" id="3" onclick="showbig('3');"/>
+            <img src="images/s5.jpg" width="180" height="100" id="4" onclick="showbig('4');"/>
+            <img src="images/s6.jpg" width="180" height="100" id="5" onclick="showbig('5');"/>
+        </div>
+        <div >
+            <img id="bigpic" src="images/s1.jpg" width="940px" />
+        </div>
+    </div>
 </body>
 </html>
