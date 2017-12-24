@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body>
+<h2>用户注册</h2>
+<table>
+    <tr>
+        <td>用户名：</td>
+        <td><input type="text" name="username"></td>
+    </tr>
+    <tr>
+        <td>密码：</td>
+        <td><input type="password" name="pswd"></td>
+    </tr>
+    <tr>
+        <td>确认密码：</td>
+        <td><input type="password" name="pswd"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><button onclick="submit()">注册<tton></td>
+    </tr>
+</table>
+</body>
+</html>
+<script type="text/javascript">
+    function submit() {
+        var userName = $('input[name="username"]');
+        var pswd1 = $('input[name="pswd"]')[0];
+        var pswd2 = $('input[name="pswd"]')[1];
+        var node1=$(<span>用户名不能为空</span>);
+        var node2=$(<span>密码不能为空</span>);
+        var node3=$(<span>两次密码输入不同，请重新输入</span>);
+        if (!userName){
+            $('userName').after($node1);
+            return;
+        }
+        if(!pswd1 || !pswd2) {
+           $('pswd1').after($node2);
+            return;
+        }
+        if (pswd1 !== pswd2) {
+            $('pswd2').after($node3);
+            return;
+        }
+        
+        }
+</script>
