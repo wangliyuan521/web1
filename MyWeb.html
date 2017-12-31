@@ -1,0 +1,290 @@
+<!-- 此网页为一个关于浪漫的网页，其中有浪漫的网页，图片，视频等，并且可以注册自己的账户。运用JavaScircp实现了下拉菜单，表单验证(手机号验证)，鼠标跟随效果和弹出层效果 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyHomework</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        #all{
+            background: url("images/flowers.jpeg");
+            height:1000px;
+            opacity: 0.5;
+            font-family: "黑体";
+            color: white;
+        }
+        span{
+            font-size: 100px;
+            font-weight: 20px;
+        }
+        span1{
+            font-size: 20px;
+        }
+        span2{
+            font-size: 25px;
+            color: #f0f;
+        }
+        * {
+        font-size:20px;
+        margin:0px;
+        padding:0px;
+        }
+        #nav{
+        margin-top: 20px;
+        margin-left: 50px;
+        list-style:none;
+        line-height:27px;
+        }
+        #nav a:link,#nav a:visited{
+        display:block;
+        width:80px;
+        color: #666;
+        text-align:center;
+        text-decoration:none;
+        background:#CCC;
+        }
+        #nav a:hover{
+        color: #FFF;
+        text-decoration: underline;
+        font-weight: bold;
+        background:#999;
+        }
+        #nav ul{list-style: none;}
+        #nav li{
+        float:left;
+        width: 80px;
+        }
+        #nav li ul li a:hover{
+        background:#C00;
+        }
+        #nav li ul{
+        display:none;
+        }
+        #nav li.subMenuShow ul{
+        display:block;
+        }
+        #two{
+            border: 1px solid white;
+            width: 360px;
+            height: 240px;
+            position: absolute;
+            left: 940px;
+            top: 60px;
+        }
+        #three{
+            padding:10px; 
+            background: #f0f;
+            position:absolute; 
+            color:white;
+          }
+        #four{
+        width:1000px;
+        margin:auto;
+        position: absolute;
+        top: 250px;
+        left: 20px;
+        }
+        #smallpic{
+        height:120px; 
+        }
+        img{
+        float:left; 
+        margin-right:10px; 
+        margin-bottom:10px;
+        }
+        .pb{
+         border:3px solid #f0f;
+        }
+        #five{
+            position: absolute;
+            top: 400px;
+            right: 100px;
+        }
+    </style>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"> </script>
+    <script type="text/javascript">
+        window.onload = function(){
+            var liNodes = document.getElementsByTagName("li");
+            for (var i=0; i<liNodes.length; i++)
+            {
+                liNodes[i].onmouseover = function(){
+                    this.className = "subMenuShow";
+                }
+                liNodes[i].onmouseout = function(){
+                    this.className = "";
+                }
+            }
+            var username = document.getElementById("username"); 
+            username.onblur = checkUsername;
+            var oTop = document.getElementById("three");
+            document.onmousemove = function(a){
+            var oEvent = a ;
+            var scrollleft = document.documentElement.scrollLeft ;
+             var scrolltop = document.documentElement.scrollTop;
+            oTop.style.left = oEvent.clientX + scrollleft +10 +"px";
+            oTop.style.top = oEvent.clientY + scrolltop + 10 + "px";
+            }
+        } 
+        function checkUsername() { 
+            var username = document.getElementById("username");
+            if (username.value.length == 0)
+            {       
+                username.parentNode.innerHTML = username.parentNode.innerHTML+"<span3 style='color:white' font-size='10px'>Username is must！！</span3>";
+            }
+        }
+        var images =document.getElementsByTagName("img");
+        function showbig(which){
+             for(var i=0;i<6;i++)
+             {
+                images[i].style.border="0px";
+             }
+             document.getElementById(which).style.border="3px solid yellow";
+             var b=document.getElementById(which).src;
+             document.getElementById("bigpic").src=b;    
+        }
+        $("#submit").click(function(){
+            confirm("Confirm to submit?");
+        });
+    </script>
+</head>
+<body>
+    <div id="all">
+        <div id="one">
+            <span>romantic</span>
+            <span1>Love is a vine that grows into our hearts</span1><br/><hr/>
+            <ul id="nav">
+            <li><a  href="#">Webpage</a>
+                <ul >
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+            <li><a href="#">News</a>
+                <ul>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Sola</a>
+                <ul>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Vadio</a>
+                <ul>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Photo</a>
+                <ul>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+            <li><a  href="#">Webpage</a>
+                <ul >
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+            <li><a href="#">News</a>
+                <ul>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Sola</a>
+                <ul>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Vadio</a>
+                <ul>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div id="two">
+        <form>
+        <table>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2"><span2> Account registration</span2></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>username：</td>
+                <td><input type="text" id="username" name="username" /></td>
+            </tr>
+            <tr>
+                <td>password：</td>
+                <td><input type="password" id="passwd"</td>
+            </tr>
+            <tr>
+                <td>repassword：</td>
+                <td><input type="password" id="rePasswd"/></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="reset" id="reset" value="reset" />
+                <input id="submit" type="submit" value="submit" />
+                </td>
+            </tr>
+        </table>
+        </form>
+        </div>
+        <div id="three">This is a the season of love</div>
+        </div>
+        <div id="four">
+        <div >
+            <img id="bigpic" src="images/s1.jpeg" width="900px" />
+        </div>
+        <div id="smallpic">
+            <img src="images/s2.jpeg" width="180" height="100" id="images1" onclick="showbig('images1');" />
+            <img src="images/s3.jpeg" width="180" height="100" id="images2" onclick="showbig('images2');"/>
+            <img src="images/s4.jpeg" width="180" height="100" id="images3" onclick="showbig('images3');"/>
+            <img src="images/s5.jpeg" width="180" height="100" id="images4" onclick="showbig('images4');"/>
+            <img src="images/s6.jpeg" width="180" height="100" id="images5" onclick="showbig('images5');"/>
+        </div> 
+        </div>
+        <div id="five">
+            <ul>
+                <li>Romantic manor...</li>
+                <li>Full House...</li>
+                <li>Romantic Life...</li>
+                <li>Romantic heaven...</li>
+                <li>Romantic love...</li>
+                <li>Romantic Turkey...</li>
+                <li>Romantic manor...</li>
+                <li>Full House...</li>
+                <li>Romantic Life...</li>
+                <li>Romantic heaven...</li>
+                <li>Romantic love...</li>
+                <li>Romantic Turkey...</li>
+                <li>Romantic manor...</li>
+                <li>Full House...</li>
+                <li>Romantic Life...</li>
+                <li>Romantic heaven...</li>
+                <li>Romantic love...</li>
+                <li>Romantic Turkey...</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
